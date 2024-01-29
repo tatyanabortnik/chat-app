@@ -11,6 +11,16 @@ const scrollToBottom = (el) => el.scrollTop(el[0].scrollHeight);
 
 const getRandomId = (min, max) => Math.floor(Math.random() * (max - min) + min);
 
+const getTime = () => {
+   return new Date().toLocaleString([], {
+      year: "numeric",
+      month: "numeric",
+      day: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+   });
+};
+
 const createMessage = (time, sender, text) => {
    return `<div class="message ${sender || ``}">
       <div class="message-block message-block--${sender || ``}">
@@ -32,10 +42,7 @@ const generateAnswer = () => {
    partnerTyping.text("Typing...");
 
    setTimeout(() => {
-      const time = new Date().toLocaleTimeString([], {
-         hour: "2-digit",
-         minute: "2-digit",
-      });
+      const time = getTime();
       partnerTyping.text("");
       chatMain.append(createMessage(time));
       scrollToBottom(chatMain);
@@ -47,10 +54,7 @@ const sendUserMessage = (e) => {
    if (textMessage.val()) {
       const sender = `user`;
       const text = textMessage.val();
-      const time = new Date().toLocaleTimeString([], {
-         hour: "2-digit",
-         minute: "2-digit",
-      });
+      const time = getTime();
 
       chatMain.append(createMessage(time, sender, text));
       chatForm[0].reset();

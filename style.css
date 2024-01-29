@@ -118,6 +118,10 @@ main {
    border-radius: 0.7em;
 }
 
+.message-block__time {
+   text-align: right;
+}
+
 .user {
    justify-content: flex-end;
 }
