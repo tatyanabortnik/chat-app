@@ -7,7 +7,7 @@ const chatMain = $("#chatMain");
 const partnerTyping = $("#partnerTyping");
 let comments = [];
 
-const scrollToBottom = (el) => el.scrollTop(el[0].scrollHeight); //stackoverflow solution + jq syntax
+const scrollToBottom = (el) => el.scrollTop(el[0].scrollHeight); //stackoverflow solution + arrow func
 
 const getRandomId = (min, max) => Math.floor(Math.random() * (max - min) + min); //mdn
 
