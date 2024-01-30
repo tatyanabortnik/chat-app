@@ -7,14 +7,14 @@ const chatMain = $("#chatMain");
 const partnerTyping = $("#partnerTyping");
 let comments = [];
 
-const scrollToBottom = (el) => el.scrollTop(el[0].scrollHeight);
+const scrollToBottom = (el) => el.scrollTop(el[0].scrollHeight); //stackoverflow solution + jq syntax
 
-const getRandomId = (min, max) => Math.floor(Math.random() * (max - min) + min);
+const getRandomId = (min, max) => Math.floor(Math.random() * (max - min) + min); //mdn
 
 const getTime = () => {
    return new Date().toLocaleString([], {
-      year: "numeric",
-      month: "numeric",
+      year: "2-digit",
+      month: "short",
       day: "numeric",
       hour: "2-digit",
       minute: "2-digit",
@@ -68,7 +68,6 @@ chatFormBtn.on("click", sendUserMessage);
 
 $(document).ready(() => {
    scrollToBottom(chatMain);
-   textMessage[0].focus();
 });
 
 //get comments
